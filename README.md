@@ -14,8 +14,8 @@ Register the addon in `.storybook/main.js`
 
 ```ts
 module.exports = {
-  stories: ['../stories/**/*.stories.tsx'],
-  addons: ['storybook-addon-jotai'],
+  stories: ["../stories/**/*.stories.tsx"],
+  addons: ["storybook-addon-jotai"],
 };
 ```
 
@@ -24,7 +24,7 @@ module.exports = {
 Given a simple component:
 
 ```tsx
-import { useAtom, atom } from 'jotai';
+import { useAtom, atom } from "jotai";
 
 const userAtom = atom(null);
 
@@ -41,7 +41,11 @@ export const User = () => {
       ) : (
         <div>
           <div>No one is signed in</div>
-          <Button size="small" label="Log in" onClick={() => setUser({ name: 'John' })}/>
+          <Button
+            size="small"
+            label="Log in"
+            onClick={() => setUser({ name: "John" })}
+          />
         </div>
       )}
     </div>
@@ -52,30 +56,32 @@ export const User = () => {
 You can write a story as
 
 ```tsx
-import { withJotai } from 'storybook-addon-jotai';
+import React from "react";
 
-import { User, userAtom } from '../components/User';
+import { withJotai } from "../dist/esm";
+import { userAtom } from "../dist/esm/constants";
 
-import { Header } from './Header';
+import { Header } from "./Header";
 
 export default {
-  title: 'Example/User',
-  component: User,
+  title: "Example/Header",
+  component: Header,
   decorators: [withJotai],
+  args: {
+    name: "John",
+  },
 };
 
-const Template = (args) => <User {...args} />;
+const Template = (args) => <Header {...args} />;
 
 export const JohnLoggedIn = Template.bind({});
 JohnLoggedIn.parameters = {
   jotai: {
-    atoms: {
-      user: userAtom,
-    },
-    values: {
-      user: {
-        name: 'John Doe',
-      },
+    user: {
+      atom: userAtom,
+      getValue: (args) => ({
+        name: args.name,
+      }),
     },
   },
 };
@@ -83,13 +89,11 @@ JohnLoggedIn.parameters = {
 export const JaneLoggedIn = Template.bind({});
 JaneLoggedIn.parameters = {
   jotai: {
-    atoms: {
-      user: userAtom,
-    },
-    values: {
-      user: {
-        name: 'Jane Doe',
-      },
+    user: {
+      atom: userAtom,
+      getValue: (args) => ({
+        name: args.name,
+      }),
     },
   },
 };
