@@ -2,6 +2,32 @@
 
 #### ⚠️ Pushed to `main`
 
+- Updated package.json name ([@devakrishna33](https://github.com/devakrishna33))
+- Updated jotai ([@devakrishna33](https://github.com/devakrishna33))
+- Allow React 18 ([@mshick](https://github.com/mshick))
+- UPdate node modules ([@johnf](https://github.com/johnf))
+- Fix typos in README.md ([@johnf](https://github.com/johnf))
+- upgrade node modules ([@johnf](https://github.com/johnf))
+- Merge branch 'main' of github.com:johnf/storybook-addon-jotai into main ([@johnf](https://github.com/johnf))
+- Update README ([@johnf](https://github.com/johnf))
+- Fix prerelease issue ([@johnf](https://github.com/johnf))
+- syntax ([@johnf](https://github.com/johnf))
+- Try a dummy release ([@johnf](https://github.com/johnf))
+- Remove ejection code ([@johnf](https://github.com/johnf))
+- Initial commit ([@johnf](https://github.com/johnf))
+
+#### Authors: 3
+
+- [@devakrishna33](https://github.com/devakrishna33)
+- John Ferlito ([@johnf](https://github.com/johnf))
+- Michael Shick ([@mshick](https://github.com/mshick))
+
+---
+
+# v0.0.7 (Tue Oct 04 2022)
+
+#### ⚠️ Pushed to `main`
+
 - Updated jotai ([@devakrishna33](https://github.com/devakrishna33))
 - Allow React 18 ([@mshick](https://github.com/mshick))
 - UPdate node modules ([@johnf](https://github.com/johnf))
