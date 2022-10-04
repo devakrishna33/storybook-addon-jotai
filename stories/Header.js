@@ -1,21 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import { useAtom } from 'jotai';
+import { useAtom } from "jotai";
 
-import { userAtom } from '../dist/esm/constants.js';
+import { userAtom } from "../dist/esm/constants.js";
 
-import { Button } from './Button';
-import './header.css';
+import { Button } from "./Button";
+import "./header.css";
 
 export const Header = () => {
   const [user, setUser] = useAtom(userAtom);
-  console.error("Rendering NHeader", user);
 
   return (
     <header>
       <div className="wrapper">
         <div>
-          <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <g fill="none" fillRule="evenodd">
               <path
                 d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
@@ -37,11 +41,19 @@ export const Header = () => {
           {user ? (
             <div>
               <div>{`Logged in as ${user.name}`}</div>
-              <Button size="small" label="Log out" onClick={() => setUser(null)} />
+              <Button
+                size="small"
+                label="Log out"
+                onClick={() => setUser(null)}
+              />
             </div>
           ) : (
             <>
-              <Button size="small" label="Log in" onClick={() => setUser({ name: 'John' })}/>
+              <Button
+                size="small"
+                label="Log in"
+                onClick={() => setUser({ name: "John" })}
+              />
               <Button primary size="small" label="Sign up" />
             </>
           )}

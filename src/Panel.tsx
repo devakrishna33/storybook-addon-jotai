@@ -21,13 +21,19 @@ export const Panel: React.FC<PanelProps> = (props) => {
       setCurrentValues(values);
     },
     [ATOMS_CHANGED]: (values) => {
-      setCurrentValues(values);
+      setCurrentValues((prevState) => ({
+        ...prevState,
+        ...values,
+      }));
     },
   });
 
   return (
     <AddonPanel {...props}>
-      <PanelContent currentValues={currentValues} initialValues={initialValues} />
+      <PanelContent
+        currentValues={currentValues}
+        initialValues={initialValues}
+      />
     </AddonPanel>
   );
 };
